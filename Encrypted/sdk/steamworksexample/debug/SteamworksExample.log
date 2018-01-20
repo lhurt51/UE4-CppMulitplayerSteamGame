@@ -1,0 +1,35 @@
+﻿  voicechat.cpp
+  stdafx.cpp
+  p2pauth.cpp
+  musicplayer.cpp
+  htmlsurface.cpp
+  gameenginewin32.cpp
+  connectingmenu.cpp
+  clanchatroom.cpp
+  VectorEntity.cpp
+  Sun.cpp
+  StatsAndAchievements.cpp
+  StarField.cpp
+  SpaceWarServer.cpp
+  SpaceWarEntity.cpp
+  SpaceWarClient.cpp
+  Ship.cpp
+  ServerBrowser.cpp
+  RemoteStorage.cpp
+  QuitMenu.cpp
+  PhotonBeam.cpp
+  Generating Code...
+  Compiling...
+  MainMenu.cpp
+  Main.cpp
+  Lobby.cpp
+  Leaderboards.cpp
+  Inventory.cpp
+  Friends.cpp
+  BaseMenu.cpp
+  Generating Code...
+BaseMenu.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  SteamworksExample.vcxproj -> D:\liamh\Documents\Unreal Projects\SteamMultiplayer\Encrypted\sdk\steamworksexample\.\Debug\SteamworksExample.exe
+  SteamworksExample.vcxproj -> .\Debug\SteamworksExample.pdb (Full PDB)
+          1 file(s) copied.
+          1 file(s) copied.
