@@ -68,4 +68,7 @@ private:
 	UFUNCTION()
 	void OpenJoinMenu();
 
+public:
+	void SetServerList(TArray<FString> ServerNames);
+
 };

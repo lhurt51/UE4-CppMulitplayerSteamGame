@@ -35,8 +35,9 @@ public:
 	UFUNCTION(Exec)
 	virtual void Join(const FString &Address) override;
 
-	UFUNCTION(Exec)
 	virtual void LoadMainMenu() override;
+
+	void RefreshServerList() override;
 
 private:
 	TSubclassOf<class UUserWidget> MenuClass;
