@@ -47,10 +47,14 @@ private:
 
 	IOnlineSessionPtr SessionInterface;
 
+	TSharedPtr<class FOnlineSessionSearch> SessionSearch;
+
 	void CreateSession();
 
 	void OnCreateSessionCompleted(FName SessionName, bool Success);
 
 	void OnDestroySessionCompleted(FName SessionName, bool Success);
+
+	void OnFindSessionsCompleted(bool Success);
 
 };
