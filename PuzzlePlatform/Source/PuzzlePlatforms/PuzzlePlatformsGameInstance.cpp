@@ -18,12 +18,10 @@ UPuzzlePlatformsGameInstance::UPuzzlePlatformsGameInstance(const FObjectInitiali
 {
 	ConstructorHelpers::FClassFinder<UUserWidget> MenuBPClass(TEXT("/Game/MenuSystem/WBP_MainMenu"));
 	if (!ensure(MenuBPClass.Class != nullptr)) return;
-
 	MenuClass = MenuBPClass.Class;
 
 	ConstructorHelpers::FClassFinder<UUserWidget> InGameMenuBPClass(TEXT("/Game/MenuSystem/WBP_InGameMenu"));
 	if (!ensure(InGameMenuBPClass.Class != nullptr)) return;
-
 	InGameMenuClass = InGameMenuBPClass.Class;
 }
 
