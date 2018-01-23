@@ -68,7 +68,11 @@ private:
 	UFUNCTION()
 	void OpenJoinMenu();
 
+	TOptional<uint32> SelectedIndex;
+
 public:
+	void SelectIndex(uint32 Index);
+
 	void SetServerList(TArray<FString> ServerNames);
 
 };

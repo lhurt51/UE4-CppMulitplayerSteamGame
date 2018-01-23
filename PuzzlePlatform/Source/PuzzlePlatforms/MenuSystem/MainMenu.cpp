@@ -46,6 +46,14 @@ void UMainMenu::HostServer()
 
 void UMainMenu::JoinServer()
 {
+	if (SelectedIndex.IsSet())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Selected index %d"), SelectedIndex.GetValue());
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Selected index not set"));
+	}
 	if (MenuInterface != nullptr)
 	{
 		//if (!ensure(IPAddressInput != nullptr)) return;
@@ -77,11 +85,18 @@ void UMainMenu::OpenJoinMenu()
 	if (MenuInterface != nullptr) MenuInterface->RefreshServerList();
 }
 
+
+void UMainMenu::SelectIndex(uint32 Index)
+{
+	SelectedIndex = Index;
+}
+
 void UMainMenu::SetServerList(TArray<FString> ServerNames)
 {
 	UWorld* World = this->GetWorld();
 	if (!ensure(World != nullptr)) return;
 
+	uint32 i = 0;
 	ServerList->ClearChildren();
 	for (const FString& ServerName : ServerNames)
 	{
@@ -89,6 +104,7 @@ void UMainMenu::SetServerList(TArray<FString> ServerNames)
 
 		if (!ensure(Row != nullptr)) return;
 		Row->ServerName->SetText(FText::FromString(ServerName));
+		Row->Setup(this, i++);
 		ServerList->AddChild(Row);
 	}
 }
