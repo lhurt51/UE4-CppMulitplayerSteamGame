@@ -111,7 +111,9 @@ void UPuzzlePlatformsGameInstance::RefreshServerList()
 	if (SessionSearch.IsValid())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Starting Find Sessions"));
-		SessionSearch->bIsLanQuery = true;
+		// Because we are sharing an App Id we get servers from different projects. Gets weird errors
+		SessionSearch->MaxSearchResults = 100;
+		SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 		SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
 	}
 }
@@ -120,9 +122,10 @@ void UPuzzlePlatformsGameInstance::CreateSession()
 {
 	if (!SessionInterface.IsValid()) return;
 	FOnlineSessionSettings SessionSettings;
-	SessionSettings.bIsLANMatch = true;
+	SessionSettings.bIsLANMatch = false;
 	SessionSettings.NumPublicConnections = 2;
 	SessionSettings.bShouldAdvertise = true;
+	SessionSettings.bUsesPresence = true;
 	SessionInterface->CreateSession(0, SESSION_NAME, SessionSettings);
 }
 
