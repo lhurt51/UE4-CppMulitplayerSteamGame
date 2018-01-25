@@ -20,6 +20,9 @@ public:
 
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* PlayerCount;
+
+	UPROPERTY(BlueprintReadOnly)
+	bool Selected;
 	
 	void Setup(class UMainMenu* InParent, uint32 InIndex);
 
