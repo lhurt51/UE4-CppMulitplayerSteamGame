@@ -9,6 +9,17 @@
 class UButton;
 class UWidget;
 
+USTRUCT()
+struct FServerData
+{
+	GENERATED_BODY()
+
+	FString ServerName;
+	FString HostUsername;
+	uint16 CurrentPlayers;
+	uint16 MaxPlayers;
+};
+
 /**
  * 
  */
@@ -75,6 +86,6 @@ private:
 public:
 	void SelectIndex(uint32 Index);
 
-	void SetServerList(TArray<FString> ServerNames);
+	void SetServerList(TArray<FServerData> ServerNames);
 
 };

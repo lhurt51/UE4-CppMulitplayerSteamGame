@@ -6,6 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "ServerRow.generated.h"
 
+class UTextBlock;
+
 /**
  * 
  */
@@ -16,10 +18,13 @@ class PUZZLEPLATFORMS_API UServerRow : public UUserWidget
 
 public:
 	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* ServerName;
+	UTextBlock* ServerName;
 
 	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* PlayerCount;
+	UTextBlock* HostUser;
+
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* PlayerCount;
 
 	UPROPERTY(BlueprintReadOnly)
 	bool Selected;
