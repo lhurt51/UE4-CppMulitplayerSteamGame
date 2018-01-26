@@ -37,23 +37,34 @@ protected:
 private:
 	TSubclassOf<class UUserWidget> ServerRowClass;
 
-	UPROPERTY(meta = (BindWidget))
-	UButton* HostButton;
+	TOptional<uint32> SelectedIndex;
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* JoinMenuButton;
-
-	UPROPERTY(meta = (BindWidget))
-	UButton* ExitButton;
-
-	UPROPERTY(meta = (BindWidget))
-	UButton* CancelJoinButton;
+	UButton* HostServerButton;
 
 	UPROPERTY(meta = (BindWidget))
 	UButton* JoinServerButton;
 
 	UPROPERTY(meta = (BindWidget))
+	UButton* HostMenuButton;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* JoinMenuButton;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* CancelHostButton;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* CancelJoinButton;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* ExitButton;
+
+	UPROPERTY(meta = (BindWidget))
 	UWidget* MainMenu;
+
+	UPROPERTY(meta = (BindWidget))
+	UWidget* HostMenu;
 
 	UPROPERTY(meta = (BindWidget))
 	UWidget* JoinMenu;
@@ -71,15 +82,16 @@ private:
 	void JoinServer();
 
 	UFUNCTION()
-	void ExitPressed();
+	void OpenMainMenu();
 
 	UFUNCTION()
-	void OpenMainMenu();
+	void OpenHostMenu();
 
 	UFUNCTION()
 	void OpenJoinMenu();
 
-	TOptional<uint32> SelectedIndex;
+	UFUNCTION()
+	void ExitPressed();
 
 	void UpdateChildren();
 

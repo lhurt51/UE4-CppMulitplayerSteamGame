@@ -21,27 +21,33 @@ bool UMainMenu::Initialize()
 {
 	if (!Super::Initialize()) return false;
 	
-	if (!ensure(HostButton != nullptr)) return false;
-	HostButton->OnClicked.AddDynamic(this, &UMainMenu::HostServer); 
+	if (!ensure(HostServerButton != nullptr)) return false;
+	HostServerButton->OnClicked.AddDynamic(this, &UMainMenu::HostServer);
+
+	if (!ensure(JoinServerButton != nullptr)) return false;
+	JoinServerButton->OnClicked.AddDynamic(this, &UMainMenu::JoinServer);
+
+	if (!ensure(HostMenuButton != nullptr)) return false;
+	HostMenuButton->OnClicked.AddDynamic(this, &UMainMenu::OpenHostMenu);
 
 	if (!ensure(JoinMenuButton != nullptr)) return false;
 	JoinMenuButton->OnClicked.AddDynamic(this, &UMainMenu::OpenJoinMenu);
 
-	if (!ensure(ExitButton != nullptr)) return false;
-	ExitButton->OnClicked.AddDynamic(this, &UMainMenu::ExitPressed);
+	if (!ensure(CancelHostButton != nullptr)) return false;
+	CancelHostButton->OnClicked.AddDynamic(this, &UMainMenu::OpenMainMenu);
 
 	if (!ensure(CancelJoinButton != nullptr)) return false;
 	CancelJoinButton->OnClicked.AddDynamic(this, &UMainMenu::OpenMainMenu);
 
-	if (!ensure(JoinServerButton != nullptr)) return false;
-	JoinServerButton->OnClicked.AddDynamic(this, &UMainMenu::JoinServer);
+	if (!ensure(ExitButton != nullptr)) return false;
+	ExitButton->OnClicked.AddDynamic(this, &UMainMenu::ExitPressed);
 
 	return true;
 }
 
 void UMainMenu::HostServer()
 {
-	if (MenuInterface != nullptr) MenuInterface->Host();
+	if (MenuInterface != nullptr) MenuInterface->Host("Test Server Name");
 }
 
 void UMainMenu::JoinServer()
@@ -57,20 +63,17 @@ void UMainMenu::JoinServer()
 	}
 }
 
-void UMainMenu::ExitPressed()
-{
-	UWorld* World = GetWorld();
-	if (!ensure(World != nullptr)) return;
-	APlayerController* PlayerController = World->GetFirstPlayerController();
-
-	if (!ensure(PlayerController != nullptr)) return;
-	PlayerController->ConsoleCommand("quit");
-}
-
 void UMainMenu::OpenMainMenu()
 {
 	if (!ensure(MenuSwitcher != nullptr) || !ensure(MainMenu != nullptr)) return;
 	MenuSwitcher->SetActiveWidget(MainMenu);
+}
+
+
+void UMainMenu::OpenHostMenu()
+{
+	if (!ensure(MenuSwitcher != nullptr) || !ensure(HostMenu != nullptr)) return;
+	MenuSwitcher->SetActiveWidget(HostMenu);
 }
 
 void UMainMenu::OpenJoinMenu()
@@ -80,6 +83,15 @@ void UMainMenu::OpenJoinMenu()
 	if (MenuInterface != nullptr) MenuInterface->RefreshServerList();
 }
 
+void UMainMenu::ExitPressed()
+{
+	UWorld* World = GetWorld();
+	if (!ensure(World != nullptr)) return;
+	APlayerController* PlayerController = World->GetFirstPlayerController();
+
+	if (!ensure(PlayerController != nullptr)) return;
+	PlayerController->ConsoleCommand("quit");
+}
 
 void UMainMenu::UpdateChildren()
 {
