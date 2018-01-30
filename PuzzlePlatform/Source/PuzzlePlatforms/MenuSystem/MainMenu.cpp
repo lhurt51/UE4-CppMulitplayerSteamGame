@@ -5,6 +5,7 @@
 #include "Components/Button.h"
 #include "Components/WidgetSwitcher.h"
 #include "Components/TextBlock.h"
+#include "Components/EditableTextBox.h"
 #include "UObject/ConstructorHelpers.h"
 
 #include "ServerRow.h"
@@ -47,7 +48,13 @@ bool UMainMenu::Initialize()
 
 void UMainMenu::HostServer()
 {
-	if (MenuInterface != nullptr) MenuInterface->Host("Test Server Name");
+	if (!ensure(ServerNameInput != nullptr)) return;
+
+	if (MenuInterface != nullptr)
+	{
+		FString ServerName = ServerNameInput->Text.ToString();
+		MenuInterface->Host(ServerName);
+	}
 }
 
 void UMainMenu::JoinServer()

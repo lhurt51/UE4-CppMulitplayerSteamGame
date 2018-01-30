@@ -73,6 +73,9 @@ private:
 	class UWidgetSwitcher* MenuSwitcher;
 
 	UPROPERTY(meta = (BindWidget))
+	class UEditableTextBox* ServerNameInput;
+
+	UPROPERTY(meta = (BindWidget))
 	class UPanelWidget* ServerList;
 
 	UFUNCTION()
