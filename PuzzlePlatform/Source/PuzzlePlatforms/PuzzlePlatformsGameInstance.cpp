@@ -157,7 +157,7 @@ void UPuzzlePlatformsGameInstance::OnCreateSessionCompleted(FName SessionName, b
 	UWorld* World = GetWorld();
 
 	if (!ensure(World != nullptr)) return;
-	World->ServerTravel("/Game/ThirdPersonCPP/Maps/ThirdPersonExampleMap?listen");
+	World->ServerTravel("/Game/PuzzlePlatforms/Maps/Lobby?listen");
 }
 
 void UPuzzlePlatformsGameInstance::OnDestroySessionCompleted(FName SessionName, bool Success)
