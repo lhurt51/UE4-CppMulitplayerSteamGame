@@ -2,7 +2,7 @@
 
 Contains project files for Unreal Engine 4 C++ Multiplayer Steam Puzzle Platforms
 
-A simple C++ multiplayer game focused on solving puzzles using floating platforms. I am using the PuzzlePlatforms and the CppMenuSystem that I have already built to create a fully functioning multiplayer game hooked up through the steam API.
+	A simple C++ multiplayer game focused on solving puzzles using floating platforms. I am using the PuzzlePlatforms and the CppMenuSystem that I have already built to create a fully functioning multiplayer game hooked up through the steam API.
 
 ![alt text](project img)
 
