@@ -10,11 +10,13 @@ Contains project files for Unreal Engine 4 C++ Multiplayer Steam Puzzle Platform
 
 **Project Features**
 
-  	- 
+	- Multiplayer Puzzle Platform Game
+	- Full Multiplayer UI Sytem
+	- Seemless Integration of The Menu System and Gameplay
 	
 **Subjects Covered**
 
-	- 
+	- Creating a full featured project with roundabout UI and gameplay
 
 **Looking for a step by step guide?** Check out 
 Sam Pattuzzi's **[Unreal Multiplayer Mastery - Online Game Development In C++](https://www.udemy.com/unrealmultiplayer/)!** The course is designed to teach you everything you need to know about networks from the basics of latency in networks to the advanced topics of state synchronisation.
